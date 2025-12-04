@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { supabase } from '../lib/supabase';
 import { Mail, Send, CheckCircle } from 'lucide-react';
 
 export default function Contact() {
@@ -11,30 +10,17 @@ export default function Contact() {
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setError('');
 
-    try {
-      const { error: submitError } = await supabase
-        .from('contact_submissions')
-        .insert([formData]);
-
-      if (submitError) throw submitError;
-
+    setTimeout(() => {
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-
-      setTimeout(() => setSubmitted(false), 5000);
-    } catch (err) {
-      setError('Failed to send message. Please try again.');
-      console.error('Error submitting form:', err);
-    } finally {
       setLoading(false);
-    }
+      setTimeout(() => setSubmitted(false), 5000);
+    }, 500);
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -125,14 +111,8 @@ export default function Contact() {
               <div className="mb-6 bg-green-50 border-2 border-green-400 rounded-xl p-4 flex items-center gap-3">
                 <CheckCircle className="w-6 h-6 text-green-600" />
                 <p className="text-green-800 font-medium">
-                  Message sent successfully! We'll get back to you soon.
+                  Message received! Thank you for reaching out.
                 </p>
-              </div>
-            )}
-
-            {error && (
-              <div className="mb-6 bg-red-50 border-2 border-red-400 rounded-xl p-4">
-                <p className="text-red-800 font-medium">{error}</p>
               </div>
             )}
 

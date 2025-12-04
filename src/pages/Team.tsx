@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { supabase, TeamMember } from '../lib/supabase';
+import { useState, useEffect } from 'react';
+import { teamMembers, TeamMember } from '../lib/mockData';
 import { User } from 'lucide-react';
 
 export default function Team() {
@@ -7,24 +7,9 @@ export default function Team() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchTeamMembers();
+    setMembers(teamMembers.sort((a, b) => a.display_order - b.display_order));
+    setLoading(false);
   }, []);
-
-  async function fetchTeamMembers() {
-    try {
-      const { data, error } = await supabase
-        .from('team_members')
-        .select('*')
-        .order('display_order', { ascending: true });
-
-      if (error) throw error;
-      setMembers(data || []);
-    } catch (error) {
-      console.error('Error fetching team members:', error);
-    } finally {
-      setLoading(false);
-    }
-  }
 
   if (loading) {
     return (

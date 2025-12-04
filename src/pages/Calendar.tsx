@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase, CalendarEvent } from '../lib/supabase';
+import { calendarEvents, CalendarEvent } from '../lib/mockData';
 import { Calendar as CalendarIcon, MapPin, Clock } from 'lucide-react';
 
 export default function Calendar() {
@@ -7,24 +7,9 @@ export default function Calendar() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchEvents();
+    setEvents(calendarEvents.sort((a, b) => new Date(a.event_date).getTime() - new Date(b.event_date).getTime()));
+    setLoading(false);
   }, []);
-
-  async function fetchEvents() {
-    try {
-      const { data, error } = await supabase
-        .from('calendar_events')
-        .select('*')
-        .order('event_date', { ascending: true });
-
-      if (error) throw error;
-      setEvents(data || []);
-    } catch (error) {
-      console.error('Error fetching events:', error);
-    } finally {
-      setLoading(false);
-    }
-  }
 
   function formatDate(dateString: string) {
     const date = new Date(dateString);
