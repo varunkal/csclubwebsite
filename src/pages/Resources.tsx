@@ -1,4 +1,4 @@
-import { BookOpen, Code, FileText, Zap, Globe, GraduationCap } from 'lucide-react';
+import { BookOpen, Code, FileText, Zap, Globe, GraduationCap, Trophy } from 'lucide-react';
 
 export default function Resources() {
   const resources = [
@@ -196,5 +196,3 @@ export default function Resources() {
     </div>
   );
 }
-
-import { Trophy } from 'lucide-react';
