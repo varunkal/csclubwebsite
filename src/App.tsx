@@ -34,7 +34,7 @@ function App() {
             1801 N Eola Rd, Aurora, IL 60502 | Indian Prairie School District 204
           </p>
           <p className="text-xs text-yellow-300 mt-4">
-            © 2024 Metea Valley High School. All rights reserved.
+            © 2026 Metea Valley High School. All rights reserved.
           </p>
         </div>
       </footer>

@@ -11,15 +11,17 @@ export default function Home() {
             Metea Valley Computer Science Club
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-800">
-            Building the Future, One Line of Code at a Time
+            Where we compete, share, and code
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="bg-black text-yellow-400 px-6 py-3 rounded-lg font-semibold">
               Aurora, Illinois
             </div>
+            <a href= "https://ipsd.org">
             <div className="bg-white text-black px-6 py-3 rounded-lg font-semibold border-2 border-black">
               Indian Prairie School District 204
             </div>
+            </a>
           </div>
         </div>
       </div>
@@ -52,7 +54,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-bold mb-2">Connect</h3>
             <p className="text-gray-700">
-              Network with peers who share your passion for technology
+              Share ideas with peers who share your passion for technology
             </p>
           </div>
 
@@ -95,7 +97,7 @@ export default function Home() {
             <div className="bg-white border-2 border-black rounded-xl p-6">
               <h3 className="text-xl font-bold mb-3 text-yellow-600">Weekly Meetings</h3>
               <p className="text-gray-700">
-                Join us every week for coding challenges, project work sessions, and tech
+                Join us every week on Thursday for coding challenges, project work sessions, and tech
                 discussions
               </p>
             </div>
