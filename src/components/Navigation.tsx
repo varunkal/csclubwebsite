@@ -13,6 +13,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     { name: 'Home', id: 'home' },
     { name: 'Team', id: 'team' },
     { name: 'Calendar', id: 'calendar' },
+    { name: 'Resources', id: 'resources' },
     { name: 'Contact Us', id: 'contact' },
   ];
 

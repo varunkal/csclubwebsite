@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Team from './pages/Team';
 import Calendar from './pages/Calendar';
 import Contact from './pages/Contact';
+import Resources from './pages/Resources';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -16,6 +17,8 @@ function App() {
         return <Team />;
       case 'calendar':
         return <Calendar />;
+      case 'resources':
+        return <Resources />;
       case 'contact':
         return <Contact />;
       default:
